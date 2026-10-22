@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Ortografía y Registro | Tendajón Literario</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="quiz-header">
+    <div class="header-content">
+      <span class="badge-tag">📚 Tendajón Literario</span>
+      <h1>Desafío de Ortografía y Reglas del Idioma</h1>
+      <p class="subtitle">Pon a prueba tus conocimientos sobre el uso de la H, LL, Y, M, N, R, X y palabras homófonas</p>
+    </div>
+  </header>
+
+  <main class="quiz-container">
+    
+    <!-- Pantalla de Inicio -->
+    <div id="start-screen" class="card start-card">
+      <div class="icon-hero">✍️</div>
+      <h2>Demuestra tu dominio ortográfico</h2>
+      <p>Este cuestionario evalúa las reglas gramaticales esenciales. Responde correctamente cada interrogante y descubre tu nivel de pericia en la escritura.</p>
+      
+      <div class="quiz-features">
+        <div class="feature-item">
+          <span class="feat-icon">🎯</span>
+          <span>10 Preguntas basadas en reglas ortográficas oficiales</span>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">💡</span>
+          <span>Retroalimentación detallada al instante</span>
+        </div>
+      </div>
+
+      <button id="start-btn" class="btn btn-primary btn-lg">Comenzar el Quiz</button>
+    </div>
+
+    <!-- Pantalla del Quiz -->
+    <div id="quiz-screen" class="card quiz-card hidden">
+      <div class="quiz-meta">
+        <div class="progress-info">
+          <span id="question-number">Pregunta 1 de 10</span>
+          <span id="score-tracker" class="badge-score">Aciertos: 0</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progress-bar-fill" class="progress-bar-fill" style="width: 10%;"></div>
+        </div>
+      </div>
+
+      <div class="question-box">
+        <h3 id="question-text">Cargando pregunta...</h3>
+      </div>
+
+      <div id="options-container" class="options-grid"></div>
+
+      <div id="explanation-box" class="explanation-box hidden">
+        <div class="explanation-header">
+          <span id="feedback-badge" class="badge-feedback">¡Correcto!</span>
+          <h4 id="etymology-title">Explicación Normativa</h4>
+        </div>
+        <p id="explanation-text"></p>
+        <button id="next-btn" class="btn btn-accent">Siguiente Pregunta ➔</button>
+      </div>
+    </div>
+
+    <!-- Pantalla de Resultados -->
+    <div id="result-screen" class="card result-card hidden">
+      <div class="result-header">
+        <div id="result-badge-icon" class="result-badge-icon">🏆</div>
+        <h2>¡Evaluación Finalizada!</h2>
+      </div>
+
+      <div class="score-display">
+        <div class="score-circle">
+          <span id="final-score">0</span>
+          <span class="score-max">/ 10</span>
+        </div>
+        <div class="score-percentage" id="score-percentage">0% de aciertos</div>
+      </div>
+
+      <div class="rank-card">
+        <span class="rank-label">Tu Calificación:</span>
+        <h3 id="rank-title" class="rank-title">Cargando...</h3>
+        <p id="rank-description" class="rank-description"></p>
+      </div>
+
+      <div class="review-section">
+        <h3>Desglose de tus Respuestas</h3>
+        <div id="review-list" class="review-list"></div>
+      </div>
+
+      <div class="action-buttons">
+        <button id="restart-btn" class="btn btn-primary">Volver a Intentar</button>
+        <button id="share-btn" class="btn btn-secondary">Copiar Resultado</button>
+      </div>
+    </div>
+
+    <!-- Sección: Formulario de Registro / Newsletter -->
+    <section id="suscribirse" class="newsletter-section">
+      <div class="card newsletter-card">
+        <div class="newsletter-icon">📬</div>
+        <h2>Únete a la Comunidad Literaria</h2>
+        <p>Suscríbete con tu nombre y correo electrónico para recibir avisos de nuevos libros, lecciones de ortografía y novedades.</p>
+        
+        <form id="newsletter-form" class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+          <div class="form-group">
+            <input 
+              type="text" 
+              id="user-name" 
+              placeholder="Tu nombre o alias..." 
+              required 
+              class="newsletter-input"
+            >
+          </div>
+          <div class="form-group">
+            <input 
+              type="email" 
+              id="user-email" 
+              placeholder="Tu correo electrónico..." 
+              required 
+              class="newsletter-input"
+            >
+          </div>
+          <button type="submit" class="btn btn-accent btn-block">¡Suscribirme!</button>
+        </form>
+        <p id="newsletter-msg" class="newsletter-msg hidden"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="quiz-footer">
+    <p>&copy; 2026 Tendajón Literario • Fomentando el uso correcto de la palabra escrita.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
